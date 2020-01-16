@@ -26,4 +26,9 @@ public class Person {
 		super();
 		System.out.println("线程   " + Thread.currentThread().getName() + " 初始化" + this.getClass().getName());
 	}
+	@Override
+	public String toString() {
+		return "Person [lastName=" + lastName + ", firstName=" + firstName + "]";
+	}
+	
 }
