@@ -11,7 +11,18 @@ import java.util.List;
 public class Demo1 {
 	
 	public static void main(String[] args) {
-		System.out.println(isHappy(19));
+//		System.out.println(isHappy(19));
+		
+		
+//		InitClassDemo d1 = new InitClassDemo();
+		InitClassParentDemo d2 = new InitClassParentDemo();
+		
+//		System.out.println(InitClassDemo.reduce());
+//		System.out.println(InitClassParentDemo.reduce());
+		
+//		System.out.println(d1.add());
+		System.out.println(d2.add());
+		
 	}
 
 	/**

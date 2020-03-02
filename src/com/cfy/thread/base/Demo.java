@@ -13,6 +13,23 @@ import org.junit.Test;
 *	指定加锁对象：对给定对象加锁，进入同步代码前要获得给定对象的锁。
 *	直接作用于实例方法：相当于对当前实例加锁，进入同步代码前要获得当前实例的锁。
 *	直接作用于静态方法：相当于对当前类加锁，进入同步代码前要获得当前类的锁。
+*
+*Thread.sleep(millisec) 方法会休眠当前正在执行的线程，millisec 单位为毫秒。可能会抛出 InterruptedException，
+*	因为异常不能跨线程传播回 main() 中，因此必须在本地进行处理。抛出的其它异常也同样需要在本地进行处理。
+*
+*Thread.yield() 的调用声明了当前线程已经完成了生命周期中最重要的部分，可以切换给其它线程来执行。
+*	该方法只是对线程调度器的一个建议，而且也只是建议具有相同优先级的其它线程可以运行。
+*
+* interrupt() 中断该线程，如果该线程处于阻塞、限期等待或者无限期等待状态，
+* 	那么就会抛出 InterruptedException，从而提前结束该线程。
+* 	但是不能中断 I/O 阻塞和 synchronized 锁阻塞。
+* 
+* interrupted() 调用 interrupt() 方法会设置线程的中断标记，此时调用 interrupted() 方法会返回 true。
+* 
+* join()	将当前线程挂起，而不是忙等待，直到目标线程结束。
+* 
+* wait() 是 Object 的方法，而 sleep() 是 Thread 的静态方法； 
+* 	wait() 会释放锁，sleep() 不会。
 */
 public class Demo {
 	
@@ -182,7 +199,7 @@ public class Demo {
 		System.out.println(tg.activeCount());//获得活动线程的总数
 		tg.list();//打印线程组的中所有的线程信息
 	    Thread.sleep(5000);
-	    tg.stop();//停止线程组所有线程（有Thread.stop()一样的问题)）
+//	    tg.stop();//停止线程组所有线程（有Thread.stop()一样的问题)）
 	}
 	
 	
