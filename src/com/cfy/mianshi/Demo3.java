@@ -12,6 +12,13 @@ import org.junit.Test;
  * @action
  */
 public class Demo3 {
+	
+	@Test
+	public void test11() {
+		String s = null + "";
+		System.out.println(s.equals("null"));
+		System.out.println(s == null);
+	}
 
 	@Test
 	public void test1() {
@@ -52,6 +59,15 @@ public class Demo3 {
 	@Test
 	public void test5() {
 		HanoiTowers1(3,'A','B','C');
+	}
+	
+	@Test
+	public void test6() {
+		int j = 0;
+	    for (int i = 0; i < 10; i++) {
+	        j = (j++);
+	    }
+	    System.out.println(j);
 	}
 
 	/**

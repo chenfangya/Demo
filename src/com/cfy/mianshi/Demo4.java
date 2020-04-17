@@ -1,5 +1,8 @@
 package com.cfy.mianshi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 *@author    created by ChenFangYa
 *@date  2020年1月15日---上午10:56:04
@@ -21,4 +24,21 @@ public class Demo4 {
 	 * r += n; l < r; l >>= 1, r >>= 1) { if (l&1) res += t[l++]; if (r&1) res +=
 	 * t[--r]; } return res; }
 	 */
+	
+	public static void main(String[] args) throws InterruptedException {
+//		System.out.println(1 << 30);
+//		System.out.println(Integer.MAX_VALUE/2);
+//		
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		List<Integer> temp = list.subList(0, 2);
+		System.out.println(temp);
+		list.removeAll(temp);
+		System.out.println(temp);
+		System.out.println(list);
+		
+//		System.out.println(9 >> 1);
+	}
 }

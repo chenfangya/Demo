@@ -20,15 +20,19 @@ public class CompletableFutureDemo {
 	@Test
 	public void test1() {
 		ExecutorService executor = Executors.newCachedThreadPool();
-		Future<Double> future = executor.submit(new Callable<Double>() {//向ExecutorService提交一个Callable对象
-			public Double call() {
-				return doSomeLongComputation();//以异步方式在新的线程中执行耗时的操作
-			}
-		});
+//		Future<Double> future = executor.submit(new Callable<Double>() {//向ExecutorService提交一个Callable对象
+//			public Double call() {
+//				return doSomeLongComputation();//以异步方式在新的线程中执行耗时的操作
+//			}
+//		});
+		
+		Future<Double> future = executor.submit(this::doSomeLongComputation);
+		
 		doSomethingElse();//异步操作进行的同时，你可以做其他的事情
 		try {
 			//获取异步操作的结果， 如果最终被阻塞， 无法得到结果， 那么在最多等待1秒钟之后退出
-			future.get(1, TimeUnit.SECONDS);
+			Double double1 = future.get(3, TimeUnit.SECONDS);
+			System.out.println(double1);
 		} catch (ExecutionException ee) {
 			// 计算抛出一个异常
 		} catch (InterruptedException ie) {
@@ -41,7 +45,7 @@ public class CompletableFutureDemo {
 	public Double doSomeLongComputation() {
 		System.out.println("doSomeLongComputation");
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			System.out.println("doSomeLongComputation------------END");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
