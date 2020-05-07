@@ -5,7 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 import java.util.Random;
 
-import com.cfy.thread.Discount;
+import com.cfy.thread.completableFuture.Discount;
 
 public class Shop {
 

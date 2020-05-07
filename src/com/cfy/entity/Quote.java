@@ -1,6 +1,6 @@
 package com.cfy.entity;
 
-import com.cfy.thread.Discount;
+import com.cfy.thread.completableFuture.Discount;
 
 public final class Quote {
 	
