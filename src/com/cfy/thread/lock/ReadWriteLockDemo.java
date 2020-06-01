@@ -12,16 +12,17 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 不能共存！
  */
 public class ReadWriteLockDemo {
+	
 	public static void main(String[] args) {
 		MyCache myCache = new MyCache();
-// 写入
+		// 写入
 		for (int i = 1; i <= 5; i++) {
 			final int temp = i;
 			new Thread(() -> {
 				myCache.put(temp + "", temp + "");
 			}, String.valueOf(i)).start();
 		}
-// 读取
+		// 读取
 		for (int i = 1; i <= 5; i++) {
 			final int temp = i;
 			new Thread(() -> {
@@ -73,14 +74,14 @@ class MyCacheLock {
 class MyCache {
 	private volatile Map<String, Object> map = new HashMap<>();
 
-// 存，写
+	// 存，写
 	public void put(String key, Object value) {
 		System.out.println(Thread.currentThread().getName() + "写入" + key);
 		map.put(key, value);
 		System.out.println(Thread.currentThread().getName() + "写入OK");
 	}
 
-// 取，读
+	// 取，读
 	public void get(String key) {
 		System.out.println(Thread.currentThread().getName() + "读取" + key);
 		Object o = map.get(key);

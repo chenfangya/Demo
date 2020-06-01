@@ -3,6 +3,7 @@ package com.cfy.thread.lock;
 import java.util.concurrent.TimeUnit;
 
 public class TestLock1 {
+	
 	public static void main(String[] args) {
 		Phone phone = new Phone();
 		//锁的存在
