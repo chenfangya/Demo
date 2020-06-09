@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Test;
 
@@ -43,6 +44,13 @@ public class LocalDateTimeDemo {
 		System.out.println(now);//2020-01-17T10:21:03.380
 		System.out.println(date);//2020-01-17
 		System.out.println(time);//10:21:03.380
+	}
+	
+	@Test
+	public void test2() {
+		
+		LocalDateTime parse = LocalDateTime.parse("2020-06-08 10:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+		System.out.println(parse);
 	}
 	
 
