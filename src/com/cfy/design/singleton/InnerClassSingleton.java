@@ -1,4 +1,4 @@
-package com.cfy.design.single;
+package com.cfy.design.singleton;
 
 /**
  * @author created by ChenFangYa
@@ -9,17 +9,17 @@ package com.cfy.design.single;
  *
  *         123 132 A B // 此时lazyMan还没有完成构造
  */
-public class InnerClassDemo {
+public class InnerClassSingleton {
 
-	private InnerClassDemo() {
+	private InnerClassSingleton() {
 
 	}
 
-	public static InnerClassDemo getInstace() {
+	public static InnerClassSingleton getInstace() {
 		return InnerClass.HOLDER;
 	}
 
 	public static class InnerClass {
-		private static final InnerClassDemo HOLDER = new InnerClassDemo();
+		private static final InnerClassSingleton HOLDER = new InnerClassSingleton();
 	}
 }
